@@ -62,9 +62,8 @@ if vals1:
         st.write(result)
     else:
         median, min_val, max_val, mean, sd = result
-        st.write(f'Input values: Median = {median}, Min = {min_val}, Max = {max_val}')
-        st.write(f'Estimated Mean: {mean}')
-        st.write(f'Estimated Standard Deviation: {sd}')
+        st.write(f'Input values: {median} ({min_val}-{max_val}) (Median (Min-Max))')
+        st.write(f'Estimated Mean, SD: {mean}\t{sd}')
 
 st.header('Estimate Mean and SD from Quartiles')
 vals2 = st.text_input('Enter values as "median, Q1, Q3"', '')
@@ -74,9 +73,9 @@ if vals2:
         st.write(result)
     else:
         median, q1, q3, mean, sd = result
-        st.write(f'Input values: Median = {median}, Q1 = {q1}, Q3 = {q3}')
-        st.write(f'Estimated Mean: {mean}')
-        st.write(f'Estimated Standard Deviation: {sd}')
+        st.write(f'Input values: {median} ({q1}, {q3}) (Median (Q1, Q3))')
+        st.write(f'Estimated Mean: {mean}\t{sd}')
+
 
 st.header('Estimate Mean and SD from Median and Confidence Interval')
 vals3 = st.text_input('Enter values as "median, lower CI, upper CI"', '')
