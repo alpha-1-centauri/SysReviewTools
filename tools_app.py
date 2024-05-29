@@ -62,7 +62,7 @@ def add_to_sidebar(result):
     else:
         st.session_state['results'].append(result)
         for res in st.session_state['results']:
-            st.sidebar.write(res[0], res[1])
+            st.sidebar.write(f'{res[0]}\t{res[1]}')
 # Streamlit app
 st.title('Statistical Estimator Tool')
 
