@@ -51,6 +51,18 @@ def combine_means_and_sds(vals):
     except ValueError:
         return 'Invalid input. Please enter values in the format "mean1, sd1, n1, mean2, sd2, n2"', None, None, None, None, None, None, None
 
+# Sidebar to collect all past results
+st.sidebar.title('Past Results')
+if 'results' not in st.session_state:
+    st.session_state['results'] = []
+
+def add_to_sidebar(result):
+    if isinstance(result, str):
+        st.sidebar.write(result)
+    else:
+        st.session_state['results'].append(result)
+        for res in st.session_state['results']:
+            st.sidebar.write(res)
 # Streamlit app
 st.title('Statistical Estimator Tool')
 
@@ -58,6 +70,7 @@ st.header('Estimate Mean and SD from Median, Min, and Max')
 vals1 = st.text_input('Enter values as "median, min, max"', '')
 if vals1:
     result = estimate_mean_sd_from_median_min_max(vals1)
+    add_to_sidebar(result)
     if isinstance(result, str):
         st.write(result)
     else:
@@ -69,6 +82,7 @@ st.header('Estimate Mean and SD from Quartiles')
 vals2 = st.text_input('Enter values as "median, Q1, Q3"', '')
 if vals2:
     result = estimate_mean_and_sd_from_quartiles(vals2)
+    add_to_sidebar(result)
     if isinstance(result, str):
         st.write(result)
     else:
@@ -81,6 +95,7 @@ st.header('Estimate Mean and SD from Median and Confidence Interval')
 vals3 = st.text_input('Enter values as "median, lower CI, upper CI"', '')
 if vals3:
     result = estimate_mean_sd_from_median_ci(vals3)
+    add_to_sidebar(result)
     if isinstance(result, str):
         st.write(result)
     else:
@@ -92,6 +107,7 @@ st.header('Combine Means and Standard Deviations')
 vals4 = st.text_input('Enter values as "mean1, sd1, n1, mean2, sd2, n2"', '')
 if vals4:
     result = combine_means_and_sds(vals4)
+    add_to_sidebar(result)
     if isinstance(result, str):
         st.write(result)
     else:
