@@ -63,7 +63,7 @@ if vals1:
     else:
         median, min_val, max_val, mean, sd = result
         st.write(f'Input values: {median} ({min_val}-{max_val}) (Median (Min-Max))')
-        st.write(f'Estimated Mean, SD: {mean}\t{sd}')
+        st.write(f':green[<b>Estimated Mean, SD:</b>] {mean}\t{sd}')
 
 st.header('Estimate Mean and SD from Quartiles')
 vals2 = st.text_input('Enter values as "median, Q1, Q3"', '')
@@ -74,7 +74,7 @@ if vals2:
     else:
         median, q1, q3, mean, sd = result
         st.write(f'Input values: {median} ({q1}, {q3}) (Median (Q1, Q3))')
-        st.write(f'Estimated Mean: {mean}\t{sd}')
+        st.write(f':green[<b>Estimated Mean, SD:</b>] {mean}\t{sd}')
 
 
 st.header('Estimate Mean and SD from Median and Confidence Interval')
@@ -85,9 +85,8 @@ if vals3:
         st.write(result)
     else:
         median, lower_ci, upper_ci, mean, sd = result
-        st.write(f'Input values: Median = {median}, Lower CI = {lower_ci}, Upper CI = {upper_ci}')
-        st.write(f'Estimated Mean: {mean}')
-        st.write(f'Estimated Standard Deviation: {sd}')
+        st.write(f'Input values: {median} ({lower_ci}, {upper_ci}) (Median (Lower CI, Upper CI))')
+        st.write(f':green[<b>Estimated Mean, SD:</b>] {mean}\t{sd}')
 
 st.header('Combine Means and Standard Deviations')
 vals4 = st.text_input('Enter values as "mean1, sd1, n1, mean2, sd2, n2"', '')
@@ -97,7 +96,5 @@ if vals4:
         st.write(result)
     else:
         mean1, sd1, n1, mean2, sd2, n2, combined_mean, combined_sd = result
-        st.write(f'Input values: Mean 1 = {mean1}, SD 1 = {sd1}, n1 = {n1}')
-        st.write(f'Mean 2 = {mean2}, SD 2 = {sd2}, n2 = {n2}')
-        st.write(f'Combined Mean: {combined_mean}')
-        st.write(f'Combined Standard Deviation: {combined_sd}')
+        st.write(f'Input values: {mean1} ({sd1}, {n1}), {mean2} ({sd2}, {n2})')
+        st.write(f':green[<b>Combined Mean, SD:</b>] {combined_mean}\t{combined_sd}')
