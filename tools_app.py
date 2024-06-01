@@ -51,8 +51,6 @@ def combine_means_and_sds(vals):
     except ValueError:
         return 'Invalid input. Please enter values in the format "mean1, sd1, n1, mean2, sd2, n2"', None, None, None, None, None, None, None
 
-# Sidebar to collect all past results
-
 # Streamlit app
 st.title('Statistical Estimator Tool')
 
